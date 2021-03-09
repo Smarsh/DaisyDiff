@@ -1,0 +1,2 @@
+# no eol conversions!
+src/test/resources/testdata/** -text

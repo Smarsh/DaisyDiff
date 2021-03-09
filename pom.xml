@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.outerj.daisy</groupId>
   <artifactId>daisydiff</artifactId>
-  <version>1.2-NX5-SNAPSHOT</version>
+  <version>1.2-NX5</version>
   <name>Daisydiff</name>
   <description>
     A Java library to compare HTML files.
     Nuxeo maintenance branch forked from tag v1.2.
-   </description>
+  </description>
 
   <url>http://DaisyDiff.github.io</url>
   <licenses>
@@ -27,14 +27,14 @@
   <dependencyManagement>
     <dependencies>
       <dependency>
-        <groupId>org.cyberneko</groupId>
-        <artifactId>html</artifactId>
+        <groupId>net.sourceforge.nekohtml</groupId>
+        <artifactId>nekohtml</artifactId>
         <version>1.9.8</version>
       </dependency>
       <dependency>
-        <groupId>org.eclipse.core.runtime</groupId>
-        <artifactId>eclipse-core-runtime</artifactId>
-        <version>20070801</version>
+        <groupId>org.eclipse.core</groupId>
+        <artifactId>org.eclipse.core.runtime</artifactId>
+        <version>3.7.0</version>
       </dependency>
       <dependency>
         <groupId>xerces</groupId>
@@ -52,12 +52,12 @@
   <dependencies>
 
     <dependency>
-      <groupId>org.cyberneko</groupId>
-      <artifactId>html</artifactId>
+      <groupId>net.sourceforge.nekohtml</groupId>
+      <artifactId>nekohtml</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.core.runtime</groupId>
-      <artifactId>eclipse-core-runtime</artifactId>
+      <groupId>org.eclipse.core</groupId>
+      <artifactId>org.eclipse.core.runtime</artifactId>
     </dependency>
     <dependency>
       <groupId>xerces</groupId>
@@ -207,11 +207,11 @@
         </executions>
       </plugin>
       <plugin><!-- As per https://stackoverflow.com/questions/50661648/ -->
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-surefire-plugin</artifactId>
-            <configuration>
-                <useSystemClassLoader>false</useSystemClassLoader>
-            </configuration>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <configuration>
+          <useSystemClassLoader>false</useSystemClassLoader>
+        </configuration>
       </plugin>
       <plugin>
         <artifactId>maven-assembly-plugin</artifactId>
@@ -237,76 +237,5 @@
       </plugin>
     </plugins>
   </build>
-
-  <repositories>
-    <repository>
-      <id>public</id>
-      <url>https://maven.nuxeo.org/nexus/content/groups/public</url>
-      <releases>
-        <enabled>true</enabled>
-      </releases>
-      <snapshots>
-        <enabled>false</enabled>
-      </snapshots>
-    </repository>
-    <repository>
-      <id>public-snapshot</id>
-      <url>https://maven.nuxeo.org/nexus/content/groups/public-snapshot</url>
-      <releases>
-        <enabled>false</enabled>
-      </releases>
-      <snapshots>
-        <enabled>true</enabled>
-      </snapshots>
-    </repository>
-  </repositories>
-
-  <pluginRepositories>
-    <pluginRepository>
-      <id>public</id>
-      <url>https://maven.nuxeo.org/nexus/content/groups/public</url>
-      <name>Nuxeo virtual release repository</name>
-      <releases>
-        <enabled>true</enabled>
-      </releases>
-      <snapshots>
-        <enabled>false</enabled>
-      </snapshots>
-    </pluginRepository>
-    <pluginRepository>
-      <id>public-snapshot</id>
-      <url>https://maven.nuxeo.org/nexus/content/groups/public-snapshot</url>
-      <name>Nuxeo virtual snapshot repository</name>
-      <releases>
-        <enabled>false</enabled>
-      </releases>
-      <snapshots>
-        <updatePolicy>always</updatePolicy>
-        <enabled>true</enabled>
-      </snapshots>
-    </pluginRepository>
-  </pluginRepositories>
-
-  <distributionManagement>
-    <repository>
-      <id>vendor-releases</id>
-      <url>
-        https://maven.nuxeo.org/nexus/content/repositories/vendor-releases
-      </url>
-    </repository>
-    <snapshotRepository>
-      <id>vendor-snapshots</id>
-      <url>
-        https://maven.nuxeo.org/nexus/content/repositories/vendor-snapshots
-      </url>
-      <uniqueVersion>true</uniqueVersion>
-    </snapshotRepository>
-  </distributionManagement>
-
-  <scm>
-    <connection>scm:git:git://github.com/nuxeo/daisydiff.git</connection>
-    <developerConnection>scm:git:ssh://git@github.com:nuxeo/daisydiff.git</developerConnection>
-    <url>https://github.com/nuxeo/daisydiff</url>
-  </scm>
 
 </project>
